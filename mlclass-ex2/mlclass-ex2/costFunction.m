@@ -21,10 +21,13 @@ grad = zeros(size(theta));
 %
 
 
+% f = @(i) -y(i) * log(sigmoid(X(1, :) * theta)) - (1 - y(i)) * log(1 - sigmoid(X(1, :) * theta));
+% 
+% J = 1 / m * sum(arrayfun(f, 1:m));
 
+J = - ((log(sigmoid(X * theta))' * y) + (log(1 - sigmoid(X * theta)))' * (1 - y)) / m
 
-
-
+grad = X' * (sigmoid(X * theta) - y) / m;
 
 
 % =============================================================

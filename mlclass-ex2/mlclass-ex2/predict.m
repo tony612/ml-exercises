@@ -16,7 +16,7 @@ p = zeros(m, 1);
 %
 
 
-
+p = arrayfun(@(i) ifelse(sigmoid(X(i, :) * theta) >= 0.5, 1, 0), 1:m);
 
 
 
