@@ -13,8 +13,15 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
+val = J;
 
+for i=1:m
+  val += (theta(1) + theta(2) * X(i, 2) - y(i)) ^ 2;
+end
 
+val /= 2 * m;
+
+J = val;
 
 
 % =========================================================================

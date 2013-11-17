@@ -19,11 +19,14 @@ for iter = 1:num_iters
 
 
 
+    sums = zeros(1, size(X, 2));
+    for j = 1:length(sums)
+      for i = 1:m
+          sums(j) += (theta' * X(i, :)' - y(i)) * X(i, j);
+      end
 
-
-
-
-
+      theta(j) -= alpha * sums(j) / m;
+    end
 
 
 
