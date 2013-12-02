@@ -62,12 +62,62 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+% Add ones to the X data matrix
+
+%% Part 1
+X = [ones(m, 1) X];
 
 
+cost = 0;
+
+yVec = eye(num_labels);
+
+for i=1:m
+  for k=1:num_labels
+    yki = yVec(:, y(i))'(k);
+    xi = X(i, :)';
+    a2 = [1; sigmoid(Theta1 * xi)];
+    hx = a3 = sigmoid(Theta2 * a2);
+    cost -= ( yki * log(hx(k)) + (1 - yki) * log(1 - hx(k)) );
+  end
+end
+
+J = cost / m;
+
+Theta1s = Theta1(:, 2:end) .^ 2;
+Theta2s = Theta2(:, 2:end) .^ 2;
+J += (sum(Theta1s(:)) + sum(Theta2s(:))) * lambda / 2 / m;
 
 
+%% Part 2
 
+for t = 1:m
+  a_1 = X(t, :)';
+  z_2 = Theta1 * a_1;
+  a_2 = [1; sigmoid(z_2)];
+  z_3 = Theta2 * a_2;
+  a_3 = sigmoid(z_3);
 
+  delta_3 = a_3 - yVec(:, y(t));
+
+  delta_2 = ((Theta2)' * delta_3) .* [1; sigmoidGradient(z_2)];
+
+  delta_2 = delta_2(2:end);
+
+  Theta1_grad = Theta1_grad + delta_2 * (a_1)';
+  Theta2_grad = Theta2_grad + delta_3 * (a_2)';
+end
+
+Theta1_grad /= m;
+Theta2_grad /= m;
+
+regular1 = lambda * Theta1 / m;
+regular1(:, 1) = 0;
+regular2 = lambda * Theta2 / m;
+regular2(:, 1) = 0;
+
+Theta1_grad += regular1;
+Theta2_grad += regular2;
 
 
 
