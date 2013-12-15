@@ -19,9 +19,16 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+% X = [ones(m, 1) X];
 
+err_vec = X * theta - y;
+reg_theta = theta(2:end, :);
 
+J = err_vec' * err_vec / 2 / m + reg_theta' * reg_theta * lambda / 2 / m;
 
+new_theta = [0; theta(2:end, :)];
+
+grad = (err_vec' * X / m)' + new_theta * lambda / m;
 
 
 
