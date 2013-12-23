@@ -16,7 +16,9 @@ sim = 0;
 %
 %
 
+vec = x1 - x2;
 
+sim = exp(-(vec' * vec) / 2 / (sigma ^ 2));
 
 
 
