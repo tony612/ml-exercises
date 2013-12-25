@@ -26,7 +26,21 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+<<<<<<< Updated upstream
 
+=======
+for k = 1:K
+  sumCen = zeros(1, n);
+  num = 0;
+  for i = 1:m
+    if idx(i) == k
+      sumCen = sumCen + X(i, :);
+      num += 1;
+    end
+  end
+  centroids(k, :) = sumCen ./ num;
+end
+>>>>>>> Stashed changes
 
 
 

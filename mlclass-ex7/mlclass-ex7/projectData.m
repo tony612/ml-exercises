@@ -18,7 +18,12 @@ Z = zeros(size(X, 1), K);
 %                    projection_k = x' * U(:, k);
 %
 
+<<<<<<< Updated upstream
 
+=======
+Ureduce = U(:, 1:K);
+Z = X * Ureduce;
+>>>>>>> Stashed changes
 
 
 % =============================================================

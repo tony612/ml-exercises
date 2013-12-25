@@ -21,7 +21,16 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+<<<<<<< Updated upstream
 
+=======
+for i = 1:length(idx)
+  x = X(i, :);
+  disVec = bsxfun(@minus, x, centroids);
+  disVec = sum(disVec .^ 2, 2);
+  idx(i) = find(disVec == min(disVec(:)));
+end
+>>>>>>> Stashed changes
 
 
 
