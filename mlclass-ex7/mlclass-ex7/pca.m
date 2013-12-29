@@ -20,13 +20,9 @@ S = zeros(n);
 %       number of examples).
 %
 
-<<<<<<< Updated upstream
-
-=======
 Sigma = X' * X / m;
 
 [U, S, V] = svd(Sigma);
->>>>>>> Stashed changes
 
 
 

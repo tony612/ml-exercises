@@ -84,10 +84,8 @@ axis([-4 3 -4 3]); axis square
 
 %  Project the data onto K = 1 dimension
 K = 1;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
+
 Z = projectData(X_norm, U, K);
 fprintf('Projection of the first example: %f\n', Z(1));
 fprintf('\n(this value should be about 1.481274)\n\n');
