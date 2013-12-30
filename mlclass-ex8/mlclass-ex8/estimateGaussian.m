@@ -22,9 +22,11 @@ sigma2 = zeros(n, 1);
 %
 
 
+mu = sum(X, 1)' / m;
 
+dis_vec = bsxfun(@minus, X', mu) .^ 2;
 
-
+sigma2 = sum(dis_vec, 2) / m;
 
 
 
